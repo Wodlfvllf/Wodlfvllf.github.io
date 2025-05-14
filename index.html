@@ -4,125 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shashank Shekhar Shukla - Portfolio</title>
+    <!-- Optional: Google Font (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif; /* Changed font for a slightly different feel */
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5; /* Slightly different background */
-            color: #333;
+            background-color: #eef1f5;
+            color: #444;
         }
         .container {
-            width: 85%; /* Slightly wider */
-            max-width: 1200px; /* Max width for larger screens */
-            margin: auto;
+            width: 85%;
+            max-width: 1200px;
+            margin: 30px auto; /* Added top/bottom margin for better spacing */
             overflow: hidden;
             padding: 25px;
             background-color: #fff;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08); /* Softer shadow */
-            border-radius: 8px; /* Rounded corners for the container */
-            margin-top: 30px;
-            margin-bottom: 30px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            border-radius: 8px;
         }
         header {
-            background: linear-gradient(to right, #2c3e50, #34495e); /* Gradient background */
-            color: #ecf0f1; /* Lighter text color */
-            padding: 1.5rem 0;
+            background: linear-gradient(135deg, #3A506B 0%, #1C2541 100%);
+            color: #f0f8ff;
+            padding: 2rem 1rem; /* Adjusted padding for responsiveness */
             text-align: center;
-            border-bottom: #1abc9c 4px solid; /* Accent color */
-            border-radius: 8px 8px 0 0; /* Match container */
+            border-bottom: #6FFFE9 5px solid;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before { /* Decorative element */
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(111, 255, 233, 0.1);
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        header h1, header p, header .contact-links {
+            position: relative;
+            z-index: 1;
         }
         header h1 {
             margin: 0;
-            font-size: 2.8em;
+            font-size: 2.5em; /* Adjusted for potentially smaller screens */
             font-weight: 600;
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1.1em; /* Adjusted */
             margin-top: 5px;
-            color: #bdc3c7; /* Subdued color for tagline */
+            color: #bdc3c7;
         }
         nav {
             text-align: center;
             margin-bottom: 25px;
             padding: 10px;
-            background-color: #ecf0f1; /* Light background for nav */
+            background-color: #ecf0f1;
             border-radius: 5px;
+            overflow-x: auto; /* For very small screens, nav might scroll */
+            white-space: nowrap; /* Prevents wrapping if scrolling is needed */
         }
         nav a {
-            color: #2c3e50; /* Darker nav links */
+            color: #2c3e50;
             text-decoration: none;
-            padding: 8px 18px;
-            margin: 0 8px;
+            padding: 8px 15px; /* Adjusted padding */
+            margin: 0 5px; /* Adjusted margin */
             border-radius: 5px;
             font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            display: inline-block; /* Ensures proper spacing and hover effects */
         }
-        nav a:hover, nav a.active { /* Active state for nav */
-            background: #1abc9c;
-            color: #fff;
+        nav a:hover, nav a.active {
+            background: #6FFFE9;
+            color: #1C2541;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
         .section {
             margin-bottom: 35px;
             padding-bottom: 25px;
             border-bottom: 1px solid #e0e0e0;
         }
-        .section:last-of-type { /* Use last-of-type for more specific last child */
+        .section:last-of-type {
             border-bottom: none;
         }
         .section h2 {
-            color: #2c3e50; /* Darker section titles */
-            border-bottom: 3px solid #1abc9c;
-            padding-bottom: 8px;
+            color: #1C2541;
+            border-bottom: 4px solid #6FFFE9;
+            padding-bottom: 10px;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            font-size: 1.8em; /* Standardized heading size */
+            letter-spacing: 0.5px;
+            position: relative;
         }
-        ul.experience-list li, ul.achievements-list li { /* Specific styling for these lists */
-            background: #f9f9f9;
-            margin-bottom: 12px;
-            padding: 18px;
-            border-left: 5px solid #1abc9c;
-            border-radius: 4px;
-            transition: transform 0.2s ease-in-out;
+        .section h2::after { /* Decorative underline */
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -7px; /* Adjusted position */
+            width: 60px;
+            height: 3px;
+            background-color: #3A506B;
+        }
+        ul.experience-list li, ul.achievements-list li {
+            background: #ffffff;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 6px solid #6FFFE9;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         ul.experience-list li:hover, ul.achievements-list li:hover {
-            transform: translateX(5px);
+            transform: translateX(8px) scale(1.01);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        ul li strong {
+        ul li strong { /* Applied to all list item strong tags for consistency */
             color: #2c3e50;
-            font-size: 1.1em; /* Slightly larger strong text */
+            font-size: 1.1em;
+            display: block; /* Makes the strong tag take full width for better structure */
+            margin-bottom: 5px;
         }
         .project-item, .blog-item {
-            background-color: #fdfdfd;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            background-color: #ffffff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            border: 1px solid #e8e8e8;
+            transition: box-shadow 0.3s ease;
         }
-        .project-item h3, .blog-item h3 {
-            margin-top: 0; /* Remove top margin from h3 inside items */
-            margin-bottom: 8px;
-            color: #16a085; /* Accent color for item titles */
-            font-size: 1.4em;
+        .project-item:hover, .blog-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
         }
-        .project-item p, .blog-item p, .achievement-item p {
+        .project-item h3, .blog-item h3 { /* Standardized sub-heading size */
             margin-top: 0;
-            margin-bottom: 10px; /* Consistent bottom margin */
+            margin-bottom: 10px; /* Increased margin */
+            color: #3A506B;
+            font-size: 1.3em; /* Standardized */
+            border-bottom: 2px dotted #6FFFE9;
+            padding-bottom: 8px; /* Increased padding */
+        }
+        .project-item p, .blog-item p, .achievement-item p, ul.experience-list li p { /* Target all relevant p tags */
+            margin-top: 0;
+            margin-bottom: 10px;
             font-size: 1em;
             color: #555;
         }
-        .project-details { /* Class for more detailed project descriptions */
+        .project-details {
             font-size: 0.95em;
             color: #444;
-            margin-left: 15px; /* Indent details */
+            margin-left: 15px;
             border-left: 2px solid #bdc3c7;
             padding-left: 15px;
+            margin-top: 10px; /* Added margin top */
         }
         .project-details ul {
-            list-style-type: disc; /* Use disc for inner lists */
-            padding-left: 20px; /* Indent list items */
+            list-style-type: disc;
+            padding-left: 20px;
         }
         .project-details ul li {
             background: none;
@@ -131,81 +176,123 @@
             margin-bottom: 3px;
         }
         .contact-links a {
-            margin: 0 10px; /* Adjusted margin */
-            color: #ecf0f1; /* Lighter link color in header */
+            margin: 0 8px; /* Adjusted for responsiveness */
+            color: #ecf0f1;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
         .contact-links a:hover {
-            color: #1abc9c; /* Accent color on hover */
+            color: #6FFFE9;
             text-decoration: underline;
         }
         footer {
             text-align: center;
             padding: 25px;
-            background: #2c3e50; /* Match header gradient start */
+            background: #2c3e50;
             color: #ecf0f1;
             margin-top: 30px;
-            border-radius: 0 0 8px 8px; /* Match container */
+            border-radius: 0 0 8px 8px;
         }
-        .resume-link, .github-button { /* General button style */
+        .resume-link, .github-button {
             display: inline-block;
-            background-color: #1abc9c;
-            color: white !important; /* Ensure text is white */
-            padding: 12px 25px;
+            background-color: #6FFFE9;
+            color: #1C2541 !important;
+            padding: 10px 20px; /* Adjusted padding */
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 15px;
+            margin-top: 10px; /* Adjusted margin */
             font-weight: bold;
-            transition: background-color 0.3s;
-            border: none; /* Remove default border for a elements styled as buttons */
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            box-shadow: 0 2px 5px rgba(28, 37, 65, 0.2);
         }
         .resume-link:hover, .github-button:hover {
-            background-color: #16a085; /* Darker shade on hover */
+            background-color: #58e0c8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(28, 37, 65, 0.3);
         }
         .kaggle-medals {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px; /* Space between medals */
-            justify-content: center; /* Center medals if they don't fill row */
+            gap: 10px; /* Adjusted gap */
+            justify-content: flex-start; /* Align medals to start */
             margin-top: 10px;
         }
         .medal {
             display: flex;
             align-items: center;
-            padding: 8px 12px;
-            border-radius: 20px; /* Pill shape */
-            font-size: 0.9em;
+            padding: 6px 10px; /* Adjusted padding */
+            border-radius: 20px;
+            font-size: 0.85em; /* Adjusted font size */
             font-weight: 500;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        .medal-icon {
-            margin-right: 8px;
-            font-size: 1.2em;
-        }
+        .medal-icon { margin-right: 6px; font-size: 1.1em; }
         .silver { background-color: #e0e0e0; color: #333; border: 1px solid #c0c0c0; }
         .bronze { background-color: #f0e6d2; color: #7c4b28; border: 1px solid #cd7f32; }
-        .gold { background-color: #fff0b3; color: #b8860b; border: 1px solid #ffd700;} /* Added gold for future */
+        .gold { background-color: #fff0b3; color: #b8860b; border: 1px solid #ffd700;}
 
-        .skills-category {
-            margin-bottom: 15px;
-        }
-        .skills-category strong {
-            display: block;
-            margin-bottom: 5px;
-            color: #16a085;
-        }
+        .skills-category { margin-bottom: 15px; }
+        .skills-category strong { display: block; margin-bottom: 8px; color: #16a085; font-size: 1.05em;}
         .skill-tag {
             display: inline-block;
             background-color: #ecf0f1;
             color: #2c3e50;
-            padding: 5px 10px;
-            margin: 3px;
-            border-radius: 3px;
+            padding: 6px 12px; /* Adjusted padding */
+            margin: 4px; /* Adjusted margin */
+            border-radius: 4px; /* Slightly more rounded */
             font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
         }
+        .skill-tag:hover {
+            background-color: #3A506B;
+            color: #fff;
+        }
+
+        /* --- START: Basic Responsive Adjustments (Conceptual) --- */
+        /* For smaller screens, you'd use media queries.
+           This is a conceptual example. You'll need to test and refine.
+        */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            nav a {
+                padding: 8px 10px;
+                margin: 0 3px;
+                font-size: 0.9em; /* Smaller nav links on small screens */
+            }
+            .section h2 {
+                font-size: 1.5em;
+            }
+            .project-item h3, .blog-item h3 {
+                font-size: 1.2em;
+            }
+            .kaggle-medals {
+                justify-content: center; /* Center medals if they stack */
+            }
+            .resume-link, .github-button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 1.5rem 0.5rem; } /* Less padding on very small screens */
+            .contact-links a { font-size: 0.9em; margin: 0 5px;}
+            /* Further adjustments for very small screens if needed */
+        }
+        /* --- END: Basic Responsive Adjustments --- */
+
     </style>
 </head>
 <body>
@@ -221,6 +308,7 @@
     </header>
 
     <div class="container">
+        <!-- NAVIGATION: "About" now serves as the "Home" link as it's the first section -->
         <nav>
             <a href="#about" class="active">About</a>
             <a href="#experience">Experience</a>
@@ -240,44 +328,32 @@
             <a href="resume.pdf" class="resume-link" target="_blank">Download Resume (PDF)</a>
         </section>
 
-
-        <section id="resume-live" class="section">
-            <h2>My Resume</h2>
-            <p style="text-align:center; margin-bottom: 20px;">
-                View my detailed resume below, or <a href="resume.pdf" target="_blank" style="color: #1abc9c; font-weight:bold;">download it here</a>.
-            </p>
-            <div class="resume-embed-container" style="text-align: center;">
-                <iframe src="resume.pdf#toolbar=0&navpanes=0&scrollbar=0" width="90%" height="700px" style="border: 1px solid #ddd; border-radius: 6px;" title="Shashank Shekhar Shukla Resume">
-                    <p>Your browser does not support PDFs. Please <a href="resume.pdf">download the PDF</a> to view it.</p>
-                </iframe>
-            </div>
-        </section>
-        
         <section id="experience" class="section">
             <h2>Professional Experience</h2>
             <ul class="experience-list">
                 <li>
-                    <strong>Data Scientist Intern, Swiggy</strong> (Jan 2025 - Present, Remote)
+                    <!-- Standardized Date Format -->
+                    <strong>Data Scientist Intern, Swiggy</strong> (January 2025 – Present, Remote)
                     <p>Key contributions include automating the complete pipeline for fetching and verifying Swiggy Dineout menu images, performing inference, and managing data logs. Processed over 3 million rows from Snowflake for image extraction. Developed a robust OCR pipeline using Databricks and PySpark to extract text from menus, subsequently leveraging this data to enhance restaurant recommendation algorithms.</p>
                 </li>
                 <li>
-                    <strong>Machine Learning for Science - Google Summer of Code (CERN)</strong> (May 2024 - Sep 2024, Remote)
+                    <strong>Machine Learning for Science - Google Summer of Code (CERN)</strong> (May 2024 – September 2024, Remote)
                     <p>Developed a novel Masked Autoencoder-based "Channel Former" utilizing channel-specific multi-headed attention and depthwise convolutions (ranging from 1.21M to 19M parameters). This model was designed to efficiently compress boosted top quark (400GeV) data from the CMS experiment at the LHC. Successfully processed 4 million physics samples and engineered an advanced preprocessing pipeline (pixel suppression, z-score normalization, outlier clipping, min-max scaling), achieving remarkable AUC scores of 0.97 (Linear Probing) and 0.98 (Fine-Tuning).</p>
                 </li>
                 <li>
-                    <strong>Deep Learning Research Intern, Tata Consultancy Services</strong> (May 2024 - July 2024, Remote)
+                    <strong>Deep Learning Research Intern, Tata Consultancy Services</strong> (May 2024 – July 2024, Remote)
                     <p>Spearheaded the development of an LLM-based chatbot tailored for querying complex manufacturing datasets. Fine-tuned state-of-the-art models including Phi3-128k, OpenELM, Phi3-4k, and LLaMA2-7B using PEFT and LoRA techniques, significantly improving chatbot response accuracy to an F1 score of 78% (a substantial increase from 47% in baseline models).</p>
                 </li>
                  <li>
-                    <strong>Autonomous development of Load Haul Dump Machine, NVCTI, IIT DHANBAD</strong> (Aug 2023 - Oct 2023)
+                    <strong>Autonomous development of Load Haul Dump Machine, NVCTI, IIT DHANBAD</strong> (August 2023 – October 2023, IIT ISM)
                     <p>Led the end-to-end automation of Load Haul Dump Machine processes by integrating robotics and machine learning algorithms to enhance productivity. Developed and implemented a Pure Pursuit Controller for precise path tracking, achieving 81% accuracy.</p>
                 </li>
             </ul>
         </section>
 
         <section id="projects" class="section">
+            <!-- Standardized Heading Size and Formatting -->
             <h2>Featured Projects</h2>
-            <!-- Neural Lux-Bots -->
             <div class="project-item">
                 <h3>Neural Lux-Bots: Decentralized Multi-Agent Reinforcement Learning</h3>
                 <p>An advanced system for the Lux AI Season 2 competition, focusing on intelligent resource gathering and strategic decision-making in a competitive environment.</p>
@@ -286,13 +362,12 @@
                         <li>Designed a decentralized multi-agent RL system using Deep Q-Networks (DQN) and ResNet18-based feature extraction for enhanced spatial awareness.</li>
                         <li>Integrated game-theoretic concepts by modeling Q-values as payoffs in Nash equilibrium settings, enabling agents to make stable, coordinated decisions despite environmental non-stationarity.</li>
                         <li>Implemented a custom reward function to optimize agent cooperation and competition for resource management and territorial control.</li>
-                        <li>Agent logic included pathfinding (A*), resource allocation, and defensive/offensive strategies.</li>
                     </ul>
                 </div>
+                <!-- Project links are already styled as buttons, which is good -->
                 <p><a href="https://github.com/Wodlfvllf/NeuralLux-Bots" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
             </div>
 
-            <!-- Cross-City Generalizability -->
             <div class="project-item">
                 <h3>Cross-City Generalizability of Instance Segmentation for Building Extraction</h3>
                 <p>Developed a robust instance segmentation model for extracting building footprints from satellite imagery, designed to generalize across diverse urban landscapes.</p>
@@ -305,10 +380,8 @@
                     </ul>
                 </div>
                 <p><a href="https://github.com/Wodlfvllf/Cross-Building-Segmentation" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
-                 <!-- Renamed from Instance-Segmentation-of-Buildings to Cross-Building-Segmentation based on your new link -->
             </div>
 
-            <!-- AI Agent 007 -->
             <div class="project-item">
                 <h3>AI Agent 007: Tooling up for Success (Advanced RAG System)</h3>
                 <p>Built a sophisticated AI Agent leveraging Retrieval Augmented Generation (RAG) for enhanced domain-specific question answering.</p>
@@ -323,7 +396,6 @@
                 <p><a href="https://github.com/Wodlfvllf/AI-Agent-007" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
             </div>
 
-            <!-- Text Summarisation Pipeline -->
             <div class="project-item">
                 <h3>Text Summarization Pipeline with LLMs</h3>
                 <p>Developed an end-to-end pipeline for abstractive and extractive text summarization using Large Language Models and traditional NLP techniques.</p>
@@ -333,7 +405,6 @@
                         <li>Leveraged pre-trained LLMs (e.g., T5, BART, or Pegasus variants via Hugging Face Transformers) for abstractive summarization, generating novel summaries.</li>
                         <li>Included text preprocessing steps: tokenization, stop-word removal, stemming/lemmatization.</li>
                         <li>Evaluated summaries using ROUGE metrics (ROUGE-1, ROUGE-2, ROUGE-L) to assess quality and coherence.</li>
-                        <li>Potentially containerized with Docker for easy deployment (as suggested by typical pipeline practices).</li>
                     </ul>
                 </div>
                 <p><a href="https://github.com/Wodlfvllf/Text-Sumarisation-Pipeline" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
@@ -351,7 +422,7 @@
                 <p>Official publication detailing the GSoC 2024 project at CERN. Explores the application of Masked Autoencoders and Vision Transformers for classifying boosted top quark jets from simulated CMS Open Data, achieving superior performance over baseline models.</p>
                 <p>
                     <a href="https://medium.com/@shuklashashankshekhar863/masked-autoencoders-for-efficient-end-to-end-particle-reconstruction-and-compression-for-the-cms-fdd7b941a2bb" target="_blank">Read Blog Post on Medium</a><br>
-                    <!-- If you host the PDF in your repo: -->
+                    <a href="https://cds.cern.ch/record/2891532/files/Masked%20Autoencoders%20for%20Efficient%20End-to-End%20Particle%20Reconstruction%20and%20Compression%20for%20the%20CMS%20Experiment.pdf" target="_blank">(View Published Article at CERN Document Server)</a><br>
                     <a href="Masked_Autoencoders_CMS_Experiment.pdf" target="_blank">(View PDF from this site)</a>
                 </p>
             </div>
@@ -360,7 +431,14 @@
                 <p>An in-depth technical blog post that demystifies custom implementations of data parallelism in PyTorch. Covers naive approaches, efficient gradient bucketing, and the underlying mechanics of autograd and distributed communication.</p>
                 <p><a href="https://medium.com/@shuklashashankshekhar863/the-grand-symphony-of-gradients-composing-your-own-data-parallelism-in-pytorch-7c17012c9d08" target="_blank">Read on Medium</a></p>
             </div>
+            <div class="blog-item">
+                <h3>The Ultrascale Conductor's Guide (Part 1): Global Batch Size, MBS & GAS</h3>
+                <p>The inaugural post in a series on advanced 5D parallelism for training massive neural networks. This part focuses on the critical roles of Global Batch Size, Micro-Batch Size, and Gradient Accumulation Steps.</p>
+                <p><em>(Link to be added upon publication)</em></p>
+            </div>
         </section>
+
+        <!-- REMOVED Resume Embed Section -->
 
         <section id="achievements" class="section">
             <h2>Achievements & Recognition</h2>
@@ -373,6 +451,7 @@
                         <span class="medal bronze"><span class="medal-icon">🥉</span>NeurIPS LuxAI S3 - 60th/1500 (Bronze)</span>
                         <span class="medal bronze"><span class="medal-icon">🥉</span>UBC-OCEAN Cancer - 83rd/1600 (Bronze)</span>
                     </div>
+                    <p style="margin-top:10px;">CIBMTR Post-HCT Survival Predictions: 155th rank.<br>AI of GOD Challenge: 18th rank.</p>
                 </li>
                 <li>
                     <strong>Prestigious Honors</strong>
@@ -381,7 +460,6 @@
                         Ranked 28th in Amazon ML Challenge.<br>
                         Ranked 15th in AI Agent 007 Challenge (Inter-IIT).<br>
                         Secured All India Rank (AIR) 1503 in GATE 2025 Data Science.
-                        AI of GOD Challenge: 18th rank.
                     </p>
                 </li>
                 <li>
@@ -434,26 +512,50 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Simple active state for nav links based on scroll (optional)
+        // Simple active state for nav links based on scroll
         const sections = document.querySelectorAll('.section');
-        const navLi = document.querySelectorAll('nav a');
+        const navLinks = document.querySelectorAll('nav a'); // Corrected selector
         window.addEventListener('scroll', ()=> {
-            let current = '';
+            let current = 'about'; // Default to 'about' if no other section is prominent
             sections.forEach( section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                // Make section active when its top is slightly above the viewport middle
+                if (pageYOffset >= sectionTop - window.innerHeight / 3) {
                     current = section.getAttribute('id');
                 }
-            })
+            });
 
-            navLi.forEach( a => {
+            navLinks.forEach( a => {
                 a.classList.remove('active');
                 if (a.getAttribute('href').substring(1) === current) {
                     a.classList.add('active');
                 }
-            })
+            });
+            // Ensure the first link is active if scrolled to the very top
+            if (window.pageYOffset < sections[0].offsetTop - window.innerHeight / 3) {
+                 navLinks.forEach(a => a.classList.remove('active'));
+                 if(navLinks.length > 0) navLinks[0].classList.add('active');
+            }
         });
+        // Set initial active link on page load
+        if(navLinks.length > 0) { // Check if navLinks exist
+             let currentHash = window.location.hash.substring(1);
+             if (!currentHash && sections.length > 0) { // If no hash, default to first section
+                 currentHash = sections[0].getAttribute('id');
+             }
+             navLinks.forEach(a => {
+                 a.classList.remove('active');
+                 if (a.getAttribute('href').substring(1) === currentHash) {
+                     a.classList.add('active');
+                 }
+             });
+             // If still no active link (e.g. hash doesn't match any section), activate the first one
+             const isActive = Array.from(navLinks).some(a => a.classList.contains('active'));
+             if (!isActive && navLinks.length > 0) {
+                 navLinks[0].classList.add('active');
+             }
+        }
+
     </script>
 </body>
 </html>
