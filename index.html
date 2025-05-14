@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shashank Shekhar Shukla - Portfolio</title>
-    <!-- Optional: Google Font (Roboto) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -14,11 +13,12 @@
             padding: 0;
             background-color: #eef1f5;
             color: #444;
+            padding-top: 65px; /* <<< ADJUST THIS VALUE based on your nav height */
         }
         .container {
             width: 85%;
             max-width: 1200px;
-            margin: 30px auto; /* Added top/bottom margin for better spacing */
+            margin: 30px auto;
             overflow: hidden;
             padding: 25px;
             background-color: #fff;
@@ -28,14 +28,20 @@
         header {
             background: linear-gradient(135deg, #3A506B 0%, #1C2541 100%);
             color: #f0f8ff;
-            padding: 2rem 1rem; /* Adjusted padding for responsiveness */
+            padding: 2rem 1rem;
             text-align: center;
             border-bottom: #6FFFE9 5px solid;
-            border-radius: 8px 8px 0 0;
+            /* border-radius: 8px 8px 0 0; We might remove this if header is directly under fixed nav */
             position: relative;
             overflow: hidden;
+            /* If header is the first content after nav, its top might be under the fixed nav
+               So, we might not need the container's margin-top if body padding-top is handled.
+               Alternatively, the header itself might need a margin-top if it's the very first element
+               after the fixed nav, and body padding-top isn't enough or preferred.
+               For now, let's assume body padding-top handles it.
+            */
         }
-        header::before { /* Decorative element */
+        header::before {
             content: '';
             position: absolute;
             bottom: -50px;
@@ -53,43 +59,55 @@
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em; /* Adjusted for potentially smaller screens */
+            font-size: 2.5em;
             font-weight: 600;
         }
         header p {
-            font-size: 1.1em; /* Adjusted */
+            font-size: 1.1em;
             margin-top: 5px;
             color: #bdc3c7;
         }
+
+        /* --- Fixed Navigation Bar Styles --- */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
             text-align: center;
-            margin-bottom: 25px;
-            padding: 10px;
-            background-color: #ecf0f1;
-            border-radius: 5px;
-            overflow-x: auto; /* For very small screens, nav might scroll */
-            white-space: nowrap; /* Prevents wrapping if scrolling is needed */
+            padding: 12px 0; /* Adjust vertical padding for nav height */
+            background-color: rgba(250, 250, 250, 0.97); /* Slightly off-white, more opaque */
+            backdrop-filter: blur(8px); /* Stronger blur */
+            -webkit-backdrop-filter: blur(8px); /* For Safari */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            overflow-x: auto;
+            white-space: nowrap;
+            border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle bottom border */
         }
         nav a {
             color: #2c3e50;
             text-decoration: none;
-            padding: 8px 15px; /* Adjusted padding */
-            margin: 0 5px; /* Adjusted margin */
+            padding: 8px 15px;
+            margin: 0 5px;
             border-radius: 5px;
             font-weight: 500;
             transition: background-color 0.3s, color 0.3s, transform 0.2s;
-            display: inline-block; /* Ensures proper spacing and hover effects */
+            display: inline-block;
         }
         nav a:hover, nav a.active {
             background: #6FFFE9;
             color: #1C2541;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
+            /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); (shadow might be too much with fixed nav's own shadow) */
+            transform: translateY(-1px) scale(1.05); /* Subtle hover */
         }
+        /* --- End Fixed Navigation Bar Styles --- */
+
         .section {
             margin-bottom: 35px;
             padding-bottom: 25px;
             border-bottom: 1px solid #e0e0e0;
+            scroll-margin-top: 75px; /* <<< ADJUST THIS for fixed nav anchor offset */
         }
         .section:last-of-type {
             border-bottom: none;
@@ -99,204 +117,147 @@
             border-bottom: 4px solid #6FFFE9;
             padding-bottom: 10px;
             margin-bottom: 20px;
-            font-size: 1.8em; /* Standardized heading size */
+            font-size: 1.8em;
             letter-spacing: 0.5px;
             position: relative;
         }
-        .section h2::after { /* Decorative underline */
+        .section h2::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -7px; /* Adjusted position */
+            bottom: -7px;
             width: 60px;
             height: 3px;
             background-color: #3A506B;
         }
-        ul.experience-list li, ul.achievements-list li {
-            background: #ffffff;
-            margin-bottom: 15px;
-            padding: 20px;
-            border-left: 6px solid #6FFFE9;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        ul.experience-list li:hover, ul.achievements-list li:hover {
-            transform: translateX(8px) scale(1.01);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        ul li strong { /* Applied to all list item strong tags for consistency */
-            color: #2c3e50;
-            font-size: 1.1em;
-            display: block; /* Makes the strong tag take full width for better structure */
-            margin-bottom: 5px;
-        }
-        .project-item, .blog-item {
-            background-color: #ffffff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-            border: 1px solid #e8e8e8;
-            transition: box-shadow 0.3s ease;
-        }
-        .project-item:hover, .blog-item:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-        }
-        .project-item h3, .blog-item h3 { /* Standardized sub-heading size */
-            margin-top: 0;
-            margin-bottom: 10px; /* Increased margin */
-            color: #3A506B;
-            font-size: 1.3em; /* Standardized */
-            border-bottom: 2px dotted #6FFFE9;
-            padding-bottom: 8px; /* Increased padding */
-        }
-        .project-item p, .blog-item p, .achievement-item p, ul.experience-list li p { /* Target all relevant p tags */
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1em;
-            color: #555;
-        }
-        .project-details {
-            font-size: 0.95em;
-            color: #444;
-            margin-left: 15px;
-            border-left: 2px solid #bdc3c7;
-            padding-left: 15px;
-            margin-top: 10px; /* Added margin top */
-        }
-        .project-details ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .project-details ul li {
-            background: none;
-            border-left: none;
-            padding: 5px 0;
-            margin-bottom: 3px;
-        }
-        .contact-links a {
-            margin: 0 8px; /* Adjusted for responsiveness */
-            color: #ecf0f1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .contact-links a:hover {
-            color: #6FFFE9;
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #2c3e50;
-            color: #ecf0f1;
-            margin-top: 30px;
-            border-radius: 0 0 8px 8px;
-        }
+
+        /* --- Button Text Color Fix --- */
         .resume-link, .github-button {
             display: inline-block;
-            background-color: #6FFFE9;
-            color: #1C2541 !important;
-            padding: 10px 20px; /* Adjusted padding */
+            background-color: #6FFFE9; /* Default light background */
+            color: #1C2541 !important;   /* Dark text for light background */
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 10px; /* Adjusted margin */
+            margin-top: 10px;
             font-weight: bold;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s, transform 0.2s, color 0.3s; /* Added color transition */
             border: none;
             box-shadow: 0 2px 5px rgba(28, 37, 65, 0.2);
         }
         .resume-link:hover, .github-button:hover {
             background-color: #58e0c8;
+            /* color: #1C2541 !important; (already set for default hover) */
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(28, 37, 65, 0.3);
         }
+        /* Specific styling for buttons that have an inline dark background */
+        .github-button[style*="background-color: #2c3e50"],
+        .github-button[style*="background-color: #34495e"],
+        .github-button.dark-bg { /* You could add a class instead of relying on inline style */
+            background-color: #2c3e50; /* Ensure background is explicitly dark */
+            color: #ffffff !important; /* White text for these dark backgrounds */
+        }
+        .github-button[style*="background-color: #2c3e50"]:hover,
+        .github-button[style*="background-color: #34495e"]:hover,
+        .github-button.dark-bg:hover {
+            background-color: #3A506B !important; /* Slightly lighter dark on hover */
+            color: #ffffff !important; /* Keep text white */
+        }
+        /* --- End Button Text Color Fix --- */
+
+        /* ... (rest of your CSS: ul.experience-list, .project-item, .kaggle-medals, .skills-category, footer, etc.) ... */
+        ul.experience-list li, ul.achievements-list li {
+            background: #ffffff; margin-bottom: 15px; padding: 20px; border-left: 6px solid #6FFFE9;
+            border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        ul.experience-list li:hover, ul.achievements-list li:hover {
+            transform: translateX(8px) scale(1.01); box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        ul li strong {
+            color: #2c3e50; font-size: 1.1em; display: block; margin-bottom: 5px;
+        }
+        .project-item, .blog-item {
+            background-color: #ffffff; padding: 25px; margin-bottom: 25px; border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07); border: 1px solid #e8e8e8;
+            transition: box-shadow 0.3s ease;
+        }
+        .project-item:hover, .blog-item:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.12); }
+        .project-item h3, .blog-item h3 {
+            margin-top: 0; margin-bottom: 10px; color: #3A506B; font-size: 1.3em;
+            border-bottom: 2px dotted #6FFFE9; padding-bottom: 8px;
+        }
+        .project-item p, .blog-item p, .achievement-item p, ul.experience-list li p {
+            margin-top: 0; margin-bottom: 10px; font-size: 1em; color: #555;
+        }
+        .project-details {
+            font-size: 0.95em; color: #444; margin-left: 15px; border-left: 2px solid #bdc3c7;
+            padding-left: 15px; margin-top: 10px;
+        }
+        .project-details ul { list-style-type: disc; padding-left: 20px; }
+        .project-details ul li { background: none; border-left: none; padding: 5px 0; margin-bottom: 3px;}
+        .contact-links a { margin: 0 8px; color: #ecf0f1; text-decoration: none; font-weight: 500; transition: color 0.3s;}
+        .contact-links a:hover { color: #6FFFE9; text-decoration: underline;}
+        footer {
+            text-align: center; padding: 25px; background: #2c3e50; color: #ecf0f1;
+            margin-top: 30px; border-radius: 0 0 8px 8px;
+        }
         .kaggle-medals {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px; /* Adjusted gap */
-            justify-content: flex-start; /* Align medals to start */
-            margin-top: 10px;
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; margin-top: 10px;
         }
         .medal {
-            display: flex;
-            align-items: center;
-            padding: 6px 10px; /* Adjusted padding */
-            border-radius: 20px;
-            font-size: 0.85em; /* Adjusted font size */
-            font-weight: 500;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex; align-items: center; padding: 6px 10px; border-radius: 20px;
+            font-size: 0.85em; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .medal-icon { margin-right: 6px; font-size: 1.1em; }
         .silver { background-color: #e0e0e0; color: #333; border: 1px solid #c0c0c0; }
         .bronze { background-color: #f0e6d2; color: #7c4b28; border: 1px solid #cd7f32; }
         .gold { background-color: #fff0b3; color: #b8860b; border: 1px solid #ffd700;}
-
         .skills-category { margin-bottom: 15px; }
         .skills-category strong { display: block; margin-bottom: 8px; color: #16a085; font-size: 1.05em;}
         .skill-tag {
-            display: inline-block;
-            background-color: #ecf0f1;
-            color: #2c3e50;
-            padding: 6px 12px; /* Adjusted padding */
-            margin: 4px; /* Adjusted margin */
-            border-radius: 4px; /* Slightly more rounded */
-            font-size: 0.9em;
-            transition: background-color 0.2s, color 0.2s;
+            display: inline-block; background-color: #ecf0f1; color: #2c3e50; padding: 6px 12px;
+            margin: 4px; border-radius: 4px; font-size: 0.9em; transition: background-color 0.2s, color 0.2s;
         }
-        .skill-tag:hover {
-            background-color: #3A506B;
-            color: #fff;
-        }
+        .skill-tag:hover { background-color: #3A506B; color: #fff;}
 
-        /* --- START: Basic Responsive Adjustments (Conceptual) --- */
-        /* For smaller screens, you'd use media queries.
-           This is a conceptual example. You'll need to test and refine.
-        */
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
-            header h1 {
-                font-size: 2em;
-            }
-            header p {
-                font-size: 1em;
-            }
-            nav a {
-                padding: 8px 10px;
-                margin: 0 3px;
-                font-size: 0.9em; /* Smaller nav links on small screens */
-            }
-            .section h2 {
-                font-size: 1.5em;
-            }
-            .project-item h3, .blog-item h3 {
-                font-size: 1.2em;
-            }
-            .kaggle-medals {
-                justify-content: center; /* Center medals if they stack */
-            }
-            .resume-link, .github-button {
-                padding: 8px 15px;
-                font-size: 0.9em;
-            }
+            body { padding-top: 60px; } /* Adjust if nav height changes significantly */
+            .container { width: 95%; padding: 15px; margin: 15px auto; }
+            header h1 { font-size: 2em; }
+            header p { font-size: 1em; }
+            nav { padding: 10px 0; } /* Adjust vertical padding */
+            nav a { padding: 8px 10px; margin: 0 3px; font-size: 0.9em; }
+            .section { scroll-margin-top: 70px; } /* Adjust */
+            .section h2 { font-size: 1.5em; }
+            .project-item h3, .blog-item h3 { font-size: 1.2em; }
+            .kaggle-medals { justify-content: center; }
+            .resume-link, .github-button { padding: 8px 15px; font-size: 0.9em;}
         }
-
         @media (max-width: 480px) {
-            header { padding: 1.5rem 0.5rem; } /* Less padding on very small screens */
+            body { padding-top: 55px; } /* Adjust */
+            header { padding: 1.5rem 0.5rem; }
             .contact-links a { font-size: 0.9em; margin: 0 5px;}
-            /* Further adjustments for very small screens if needed */
+            nav a { font-size: 0.85em; padding: 6px 8px;}
+            .section { scroll-margin-top: 65px; } /* Adjust */
         }
-        /* --- END: Basic Responsive Adjustments --- */
-
     </style>
 </head>
 <body>
+    <!-- Navigation Bar: Stays at the top -->
+    <nav>
+        <a href="#about" class="active">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#blogs">Publications & Blogs</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#skills">Skills</a>
+    </nav>
+
     <header>
+        <!-- Header content remains the same -->
         <h1>SHASHANK SHEKHAR SHUKLA</h1>
         <p>Aspiring Data Scientist | Machine Learning, NLP, Computer Vision</p>
         <div class="contact-links" style="margin-top: 15px;">
@@ -308,16 +269,8 @@
     </header>
 
     <div class="container">
-        <!-- NAVIGATION: "About" now serves as the "Home" link as it's the first section -->
-        <nav>
-            <a href="#about" class="active">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#blogs">Publications & Blogs</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#skills">Skills</a>
-        </nav>
-
+        <!-- All sections (About, Experience, Projects, etc.) remain here -->
+        <!-- ... your existing sections ... -->
         <section id="about" class="section">
             <h2>About Me</h2>
             <p>
@@ -332,7 +285,6 @@
             <h2>Professional Experience</h2>
             <ul class="experience-list">
                 <li>
-                    <!-- Standardized Date Format -->
                     <strong>Data Scientist Intern, Swiggy</strong> (January 2025 – Present, Remote)
                     <p>Key contributions include automating the complete pipeline for fetching and verifying Swiggy Dineout menu images, performing inference, and managing data logs. Processed over 3 million rows from Snowflake for image extraction. Developed a robust OCR pipeline using Databricks and PySpark to extract text from menus, subsequently leveraging this data to enhance restaurant recommendation algorithms.</p>
                 </li>
@@ -352,7 +304,6 @@
         </section>
 
         <section id="projects" class="section">
-            <!-- Standardized Heading Size and Formatting -->
             <h2>Featured Projects</h2>
             <div class="project-item">
                 <h3>Neural Lux-Bots: Decentralized Multi-Agent Reinforcement Learning</h3>
@@ -364,8 +315,7 @@
                         <li>Implemented a custom reward function to optimize agent cooperation and competition for resource management and territorial control.</li>
                     </ul>
                 </div>
-                <!-- Project links are already styled as buttons, which is good -->
-                <p><a href="https://github.com/Wodlfvllf/NeuralLux-Bots" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
+                <p><a href="https://github.com/Wodlfvllf/NeuralLux-Bots" target="_blank" class="github-button dark-bg">View on GitHub</a></p>
             </div>
 
             <div class="project-item">
@@ -379,7 +329,7 @@
                         <li>Achieved a high IoU score of 0.89, demonstrating strong performance in automatic building footprint detection across varied geographical locations.</li>
                     </ul>
                 </div>
-                <p><a href="https://github.com/Wodlfvllf/Cross-Building-Segmentation" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
+                <p><a href="https://github.com/Wodlfvllf/Cross-Building-Segmentation" target="_blank" class="github-button dark-bg">View on GitHub</a></p>
             </div>
 
             <div class="project-item">
@@ -393,7 +343,7 @@
                         <li>Achieved an impressive average inference time of 600ms, making it suitable for real-time applications.</li>
                     </ul>
                 </div>
-                <p><a href="https://github.com/Wodlfvllf/AI-Agent-007" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
+                <p><a href="https://github.com/Wodlfvllf/AI-Agent-007" target="_blank" class="github-button dark-bg">View on GitHub</a></p>
             </div>
 
             <div class="project-item">
@@ -407,11 +357,11 @@
                         <li>Evaluated summaries using ROUGE metrics (ROUGE-1, ROUGE-2, ROUGE-L) to assess quality and coherence.</li>
                     </ul>
                 </div>
-                <p><a href="https://github.com/Wodlfvllf/Text-Sumarisation-Pipeline" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
+                <p><a href="https://github.com/Wodlfvllf/Text-Sumarisation-Pipeline" target="_blank" class="github-button dark-bg">View on GitHub</a></p>
             </div>
 
             <p style="text-align: center; margin-top: 25px;">
-                <a href="https://github.com/Wodlfvllf?tab=repositories" target="_blank" class="resume-link" style="background-color: #34495e;">View All Repositories on GitHub</a>
+                <a href="https://github.com/Wodlfvllf?tab=repositories" target="_blank" class="resume-link" style="background-color: #34495e; color: #ffffff !important;">View All Repositories on GitHub</a>
             </p>
         </section>
 
@@ -422,7 +372,6 @@
                 <p>Official publication detailing the GSoC 2024 project at CERN. Explores the application of Masked Autoencoders and Vision Transformers for classifying boosted top quark jets from simulated CMS Open Data, achieving superior performance over baseline models.</p>
                 <p>
                     <a href="https://medium.com/@shuklashashankshekhar863/masked-autoencoders-for-efficient-end-to-end-particle-reconstruction-and-compression-for-the-cms-fdd7b941a2bb" target="_blank">Read Blog Post on Medium</a><br>
-                    <a href="https://cds.cern.ch/record/2891532/files/Masked%20Autoencoders%20for%20Efficient%20End-to-End%20Particle%20Reconstruction%20and%20Compression%20for%20the%20CMS%20Experiment.pdf" target="_blank">(View Published Article at CERN Document Server)</a><br>
                     <a href="Masked_Autoencoders_CMS_Experiment.pdf" target="_blank">(View PDF from this site)</a>
                 </p>
             </div>
@@ -437,8 +386,6 @@
                 <p><em>(Link to be added upon publication)</em></p>
             </div>
         </section>
-
-        <!-- REMOVED Resume Embed Section -->
 
         <section id="achievements" class="section">
             <h2>Achievements & Recognition</h2>
@@ -512,15 +459,15 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Simple active state for nav links based on scroll
         const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('nav a'); // Corrected selector
+        const navLinks = document.querySelectorAll('nav a');
+        const navHeight = document.querySelector('nav').offsetHeight; // Get nav height for scroll offset
+
         window.addEventListener('scroll', ()=> {
-            let current = 'about'; // Default to 'about' if no other section is prominent
+            let current = 'about';
             sections.forEach( section => {
                 const sectionTop = section.offsetTop;
-                // Make section active when its top is slightly above the viewport middle
-                if (pageYOffset >= sectionTop - window.innerHeight / 3) {
+                if (pageYOffset >= sectionTop - navHeight - window.innerHeight / 3 ) { // Adjusted offset logic
                     current = section.getAttribute('id');
                 }
             });
@@ -531,31 +478,55 @@
                     a.classList.add('active');
                 }
             });
-            // Ensure the first link is active if scrolled to the very top
-            if (window.pageYOffset < sections[0].offsetTop - window.innerHeight / 3) {
+             if (window.pageYOffset < sections[0].offsetTop - navHeight - window.innerHeight / 3 ) {
                  navLinks.forEach(a => a.classList.remove('active'));
                  if(navLinks.length > 0) navLinks[0].classList.add('active');
             }
         });
-        // Set initial active link on page load
-        if(navLinks.length > 0) { // Check if navLinks exist
-             let currentHash = window.location.hash.substring(1);
-             if (!currentHash && sections.length > 0) { // If no hash, default to first section
-                 currentHash = sections[0].getAttribute('id');
-             }
-             navLinks.forEach(a => {
-                 a.classList.remove('active');
-                 if (a.getAttribute('href').substring(1) === currentHash) {
-                     a.classList.add('active');
-                 }
-             });
-             // If still no active link (e.g. hash doesn't match any section), activate the first one
-             const isActive = Array.from(navLinks).some(a => a.classList.contains('active'));
-             if (!isActive && navLinks.length > 0) {
-                 navLinks[0].classList.add('active');
-             }
-        }
 
+        // Set initial active link and handle direct hash links
+        function setActiveNav() {
+            let currentHash = window.location.hash.substring(1);
+            if (!currentHash && sections.length > 0) {
+                currentHash = 'about'; // Default to about
+            }
+
+            let foundActive = false;
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === currentHash) {
+                    a.classList.add('active');
+                    foundActive = true;
+                }
+            });
+
+            if (!foundActive && navLinks.length > 0) {
+                navLinks[0].classList.add('active'); // Fallback to first link
+            }
+        }
+        setActiveNav(); // Call on load
+
+        // Smooth scroll for anchor links, accounting for fixed header
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - navHeight - 10; // 10px extra space
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                    // Manually update hash without jump for better UX with fixed nav
+                    // history.pushState(null, null, `#${targetId}`); // Can cause issues with back button
+                    // setActiveNav(); // Update active class immediately
+                }
+            });
+        });
     </script>
 </body>
 </html>
