@@ -6,120 +6,205 @@
     <title>Shashank Shekhar Shukla - Portfolio</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif; /* Changed font for a slightly different feel */
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5; /* Slightly different background */
             color: #333;
         }
         .container {
-            width: 80%;
+            width: 85%; /* Slightly wider */
+            max-width: 1200px; /* Max width for larger screens */
             margin: auto;
             overflow: hidden;
-            padding: 20px;
+            padding: 25px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08); /* Softer shadow */
+            border-radius: 8px; /* Rounded corners for the container */
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
+            background: linear-gradient(to right, #2c3e50, #34495e); /* Gradient background */
+            color: #ecf0f1; /* Lighter text color */
+            padding: 1.5rem 0;
             text-align: center;
-            border-bottom: #77aaff 3px solid;
+            border-bottom: #1abc9c 4px solid; /* Accent color */
+            border-radius: 8px 8px 0 0; /* Match container */
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            font-weight: 600;
         }
         header p {
-            font-size: 1.1em;
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: #bdc3c7; /* Subdued color for tagline */
         }
         nav {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 10px;
+            background-color: #ecf0f1; /* Light background for nav */
+            border-radius: 5px;
         }
         nav a {
-            color: #333;
+            color: #2c3e50; /* Darker nav links */
             text-decoration: none;
-            padding: 5px 15px;
-            margin: 0 5px;
+            padding: 8px 18px;
+            margin: 0 8px;
             border-radius: 5px;
-            background: #e0e0e0;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
         }
-        nav a:hover {
-            background: #77aaff;
+        nav a:hover, nav a.active { /* Active state for nav */
+            background: #1abc9c;
             color: #fff;
         }
         .section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e0e0e0;
         }
-        .section:last-child {
+        .section:last-of-type { /* Use last-of-type for more specific last child */
             border-bottom: none;
         }
         .section h2 {
-            color: #333;
-            border-bottom: 2px solid #77aaff;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
+            color: #2c3e50; /* Darker section titles */
+            border-bottom: 3px solid #1abc9c;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
+        ul.experience-list li, ul.achievements-list li { /* Specific styling for these lists */
             background: #f9f9f9;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-left: 5px solid #77aaff;
-            border-radius: 3px;
+            margin-bottom: 12px;
+            padding: 18px;
+            border-left: 5px solid #1abc9c;
+            border-radius: 4px;
+            transition: transform 0.2s ease-in-out;
+        }
+        ul.experience-list li:hover, ul.achievements-list li:hover {
+            transform: translateX(5px);
         }
         ul li strong {
-            color: #333;
+            color: #2c3e50;
+            font-size: 1.1em; /* Slightly larger strong text */
         }
-        .project-item, .blog-item, .achievement-item {
-            margin-bottom: 15px;
+        .project-item, .blog-item {
+            background-color: #fdfdfd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
         }
-        .project-item h3, .blog-item h3, .achievement-item h3 {
-            margin-bottom: 5px;
+        .project-item h3, .blog-item h3 {
+            margin-top: 0; /* Remove top margin from h3 inside items */
+            margin-bottom: 8px;
+            color: #16a085; /* Accent color for item titles */
+            font-size: 1.4em;
         }
         .project-item p, .blog-item p, .achievement-item p {
             margin-top: 0;
-            font-size: 0.95em;
+            margin-bottom: 10px; /* Consistent bottom margin */
+            font-size: 1em;
             color: #555;
         }
+        .project-details { /* Class for more detailed project descriptions */
+            font-size: 0.95em;
+            color: #444;
+            margin-left: 15px; /* Indent details */
+            border-left: 2px solid #bdc3c7;
+            padding-left: 15px;
+        }
+        .project-details ul {
+            list-style-type: disc; /* Use disc for inner lists */
+            padding-left: 20px; /* Indent list items */
+        }
+        .project-details ul li {
+            background: none;
+            border-left: none;
+            padding: 5px 0;
+            margin-bottom: 3px;
+        }
         .contact-links a {
-            margin-right: 15px;
-            color: #333;
+            margin: 0 10px; /* Adjusted margin */
+            color: #ecf0f1; /* Lighter link color in header */
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: color 0.3s;
         }
         .contact-links a:hover {
-            color: #77aaff;
+            color: #1abc9c; /* Accent color on hover */
             text-decoration: underline;
         }
         footer {
             text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
+            padding: 25px;
+            background: #2c3e50; /* Match header gradient start */
+            color: #ecf0f1;
             margin-top: 30px;
+            border-radius: 0 0 8px 8px; /* Match container */
         }
-        .resume-link {
+        .resume-link, .github-button { /* General button style */
             display: inline-block;
-            background-color: #77aaff;
-            color: white;
-            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: white !important; /* Ensure text is white */
+            padding: 12px 25px;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 15px;
             font-weight: bold;
+            transition: background-color 0.3s;
+            border: none; /* Remove default border for a elements styled as buttons */
         }
-        .resume-link:hover {
-            background-color: #5588dd;
+        .resume-link:hover, .github-button:hover {
+            background-color: #16a085; /* Darker shade on hover */
+        }
+        .kaggle-medals {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Space between medals */
+            justify-content: center; /* Center medals if they don't fill row */
+            margin-top: 10px;
+        }
+        .medal {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.9em;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .medal-icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        .silver { background-color: #e0e0e0; color: #333; border: 1px solid #c0c0c0; }
+        .bronze { background-color: #f0e6d2; color: #7c4b28; border: 1px solid #cd7f32; }
+        .gold { background-color: #fff0b3; color: #b8860b; border: 1px solid #ffd700;} /* Added gold for future */
+
+        .skills-category {
+            margin-bottom: 15px;
+        }
+        .skills-category strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #16a085;
+        }
+        .skill-tag {
+            display: inline-block;
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -127,7 +212,7 @@
     <header>
         <h1>SHASHANK SHEKHAR SHUKLA</h1>
         <p>Aspiring Data Scientist | Machine Learning, NLP, Computer Vision</p>
-        <div class="contact-links" style="margin-top: 10px;">
+        <div class="contact-links" style="margin-top: 15px;">
             <a href="mailto:shuklashashankshekhar863@gmail.com" target="_blank">Email</a> |
             <a href="https://www.linkedin.com/in/shashank-shekhar-shukla" target="_blank">LinkedIn</a> |
             <a href="https://github.com/Wodlfvllf" target="_blank">GitHub</a> |
@@ -137,10 +222,10 @@
 
     <div class="container">
         <nav>
-            <a href="#about">About</a>
+            <a href="#about" class="active">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#blogs">Blog Posts</a>
+            <a href="#blogs">Publications & Blogs</a>
             <a href="#achievements">Achievements</a>
             <a href="#skills">Skills</a>
         </nav>
@@ -148,111 +233,191 @@
         <section id="about" class="section">
             <h2>About Me</h2>
             <p>
-                Aspiring Data Scientist with a strong foundation in Machine Learning, Natural Language Processing, and Computer Vision.
-                Currently pursuing a Bachelor of Technology in Mining Machinery Engineering from IIT (ISM) Dhanbad (Expected May 2025).
-                Passionate about leveraging AI to solve real-world problems and seeking full-time roles in AI and Data Science.
+                I am a passionate and driven Data Scientist with a strong foundation in Machine Learning, Natural Language Processing, and Computer Vision.
+                Currently pursuing a Bachelor of Technology in Mining Machinery Engineering from the prestigious IIT (ISM) Dhanbad (Expected May 2025), I am eager to apply my skills to solve complex, real-world problems.
+                My journey is fueled by a curiosity for AI's potential and a commitment to continuous learning and contribution in the fields of AI and Data Science.
             </p>
-            <!-- You can add a link to your PDF resume here if you host it in the repo -->
-            <!-- For example, if you add resume.pdf to the root of your repo: -->
             <a href="resume.pdf" class="resume-link" target="_blank">Download Resume (PDF)</a>
         </section>
 
         <section id="experience" class="section">
-            <h2>Experience</h2>
-            <ul>
+            <h2>Professional Experience</h2>
+            <ul class="experience-list">
                 <li>
                     <strong>Data Scientist Intern, Swiggy</strong> (Jan 2025 - Present, Remote)
-                    <p>Automated pipeline for Swiggy Dineout menu images, processed 3M rows from Snowflake, developed OCR pipeline using Databricks & PySpark, improved restaurant recommendations.</p>
+                    <p>Key contributions include automating the complete pipeline for fetching and verifying Swiggy Dineout menu images, performing inference, and managing data logs. Processed over 3 million rows from Snowflake for image extraction. Developed a robust OCR pipeline using Databricks and PySpark to extract text from menus, subsequently leveraging this data to enhance restaurant recommendation algorithms.</p>
                 </li>
                 <li>
                     <strong>Machine Learning for Science - Google Summer of Code (CERN)</strong> (May 2024 - Sep 2024, Remote)
-                    <p>Built Masked Autoencoder-based Channel Former (1.21M-19M params) for top quark data compression. Processed 4M samples, engineered preprocessing pipeline achieving 0.97 AUC (Linear Probing) and 0.98 AUC (Fine-Tuning).</p>
+                    <p>Developed a novel Masked Autoencoder-based "Channel Former" utilizing channel-specific multi-headed attention and depthwise convolutions (ranging from 1.21M to 19M parameters). This model was designed to efficiently compress boosted top quark (400GeV) data from the CMS experiment at the LHC. Successfully processed 4 million physics samples and engineered an advanced preprocessing pipeline (pixel suppression, z-score normalization, outlier clipping, min-max scaling), achieving remarkable AUC scores of 0.97 (Linear Probing) and 0.98 (Fine-Tuning).</p>
                 </li>
                 <li>
                     <strong>Deep Learning Research Intern, Tata Consultancy Services</strong> (May 2024 - July 2024, Remote)
-                    <p>Developed LLM-based chatbot, fine-tuned Phi3 & LLaMA2 models using PEFT/LoRA, improved F1 score to 78%.</p>
+                    <p>Spearheaded the development of an LLM-based chatbot tailored for querying complex manufacturing datasets. Fine-tuned state-of-the-art models including Phi3-128k, OpenELM, Phi3-4k, and LLaMA2-7B using PEFT and LoRA techniques, significantly improving chatbot response accuracy to an F1 score of 78% (a substantial increase from 47% in baseline models).</p>
                 </li>
                  <li>
                     <strong>Autonomous development of Load Haul Dump Machine, NVCTI, IIT DHANBAD</strong> (Aug 2023 - Oct 2023)
-                    <p>End-to-End automation using robotics and ML. Developed Pure Pursuit Controller for Path Tracking (81% accuracy).</p>
+                    <p>Led the end-to-end automation of Load Haul Dump Machine processes by integrating robotics and machine learning algorithms to enhance productivity. Developed and implemented a Pure Pursuit Controller for precise path tracking, achieving 81% accuracy.</p>
                 </li>
             </ul>
         </section>
 
         <section id="projects" class="section">
             <h2>Featured Projects</h2>
+            <!-- Neural Lux-Bots -->
             <div class="project-item">
-                <h3>Neural Lux-Bots</h3>
-                <p>Decentralized multi-agent reinforcement learning (DQN, ResNet18) with game-theoretic concepts for spatial awareness and coordinated decisions in dynamic environments. Custom reward function for cooperation/competition.</p>
-                <p><a href="https://github.com/Wodlfvllf/Lux-AI-S2" target="_blank">View on GitHub</a></p>
+                <h3>Neural Lux-Bots: Decentralized Multi-Agent Reinforcement Learning</h3>
+                <p>An advanced system for the Lux AI Season 2 competition, focusing on intelligent resource gathering and strategic decision-making in a competitive environment.</p>
+                <div class="project-details">
+                    <ul>
+                        <li>Designed a decentralized multi-agent RL system using Deep Q-Networks (DQN) and ResNet18-based feature extraction for enhanced spatial awareness.</li>
+                        <li>Integrated game-theoretic concepts by modeling Q-values as payoffs in Nash equilibrium settings, enabling agents to make stable, coordinated decisions despite environmental non-stationarity.</li>
+                        <li>Implemented a custom reward function to optimize agent cooperation and competition for resource management and territorial control.</li>
+                        <li>Agent logic included pathfinding (A*), resource allocation, and defensive/offensive strategies.</li>
+                    </ul>
+                </div>
+                <p><a href="https://github.com/Wodlfvllf/NeuralLux-Bots" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
             </div>
+
+            <!-- Cross-City Generalizability -->
             <div class="project-item">
-                <h3>Cross-City Generalizability of Instance Segmentation Model</h3>
-                <p>U-Net with ResNet50 and Atrous Convolutions for multi-scale building footprint detection. Custom loss (BCE + Dice) for class imbalance, achieving 0.89 IoU.</p>
-                <p><a href="https://github.com/Wodlfvllf/Instance-Segmentation-of-Buildings" target="_blank">View on GitHub</a></p>
+                <h3>Cross-City Generalizability of Instance Segmentation for Building Extraction</h3>
+                <p>Developed a robust instance segmentation model for extracting building footprints from satellite imagery, designed to generalize across diverse urban landscapes.</p>
+                <div class="project-details">
+                    <ul>
+                        <li>Employed a U-Net-based semantic segmentation architecture with a ResNet50 encoder for powerful feature extraction.</li>
+                        <li>Incorporated Atrous (Dilated) Convolutions to capture multi-scale contextual information, crucial for varying building sizes and densities.</li>
+                        <li>Designed a custom composite loss function (BCE + Dice Loss) to effectively handle class imbalance between building and non-building pixels.</li>
+                        <li>Achieved a high IoU score of 0.89, demonstrating strong performance in automatic building footprint detection across varied geographical locations.</li>
+                    </ul>
+                </div>
+                <p><a href="https://github.com/Wodlfvllf/Cross-Building-Segmentation" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
+                 <!-- Renamed from Instance-Segmentation-of-Buildings to Cross-Building-Segmentation based on your new link -->
             </div>
+
+            <!-- AI Agent 007 -->
             <div class="project-item">
-                <h3>AI Agent 007: Tooling up for Success</h3>
-                <p>AI Agent using RAG (10M params, all-minilm-l6-v2) with Chain of Thought for domain-specific Q&A, achieving 600ms inference.</p>
-                <p><a href="https://github.com/Wodlfvllf/AI-Agent-007" target="_blank">View on GitHub</a></p>
+                <h3>AI Agent 007: Tooling up for Success (Advanced RAG System)</h3>
+                <p>Built a sophisticated AI Agent leveraging Retrieval Augmented Generation (RAG) for enhanced domain-specific question answering.</p>
+                 <div class="project-details">
+                    <ul>
+                        <li>Utilized a lightweight yet effective 10M parameter model (all-minilm-l6-v2 as Encoder) for efficient embedding generation.</li>
+                        <li>Implemented a Chain of Thought (CoT) prompting strategy to improve reasoning and contextual understanding for complex queries.</li>
+                        <li>Leveraged Chroma DB as the vector database for scalable and fast similarity searches over domain-specific documents.</li>
+                        <li>Achieved an impressive average inference time of 600ms, making it suitable for real-time applications.</li>
+                    </ul>
+                </div>
+                <p><a href="https://github.com/Wodlfvllf/AI-Agent-007" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
             </div>
-            <p style="text-align: center; margin-top: 20px;">
-                <a href="https://github.com/Wodlfvllf?tab=repositories" target="_blank" class="resume-link" style="background-color: #555;">View All Repositories on GitHub</a>
+
+            <!-- Text Summarisation Pipeline -->
+            <div class="project-item">
+                <h3>Text Summarization Pipeline with LLMs</h3>
+                <p>Developed an end-to-end pipeline for abstractive and extractive text summarization using Large Language Models and traditional NLP techniques.</p>
+                 <div class="project-details">
+                    <ul>
+                        <li>Implemented extractive summarization using TF-IDF and PageRank-based algorithms (e.g., TextRank) to identify key sentences.</li>
+                        <li>Leveraged pre-trained LLMs (e.g., T5, BART, or Pegasus variants via Hugging Face Transformers) for abstractive summarization, generating novel summaries.</li>
+                        <li>Included text preprocessing steps: tokenization, stop-word removal, stemming/lemmatization.</li>
+                        <li>Evaluated summaries using ROUGE metrics (ROUGE-1, ROUGE-2, ROUGE-L) to assess quality and coherence.</li>
+                        <li>Potentially containerized with Docker for easy deployment (as suggested by typical pipeline practices).</li>
+                    </ul>
+                </div>
+                <p><a href="https://github.com/Wodlfvllf/Text-Sumarisation-Pipeline" target="_blank" class="github-button" style="background-color: #2c3e50;">View on GitHub</a></p>
+            </div>
+
+            <p style="text-align: center; margin-top: 25px;">
+                <a href="https://github.com/Wodlfvllf?tab=repositories" target="_blank" class="resume-link" style="background-color: #34495e;">View All Repositories on GitHub</a>
             </p>
         </section>
 
         <section id="blogs" class="section">
-            <h2>Blog Posts & Publications</h2>
+            <h2>Publications & Blog Posts</h2>
+            <div class="blog-item">
+                <h3>Masked Autoencoders for Efficient End-to-End Particle Reconstruction and Compression for the CMS Experiment</h3>
+                <p>Official publication detailing the GSoC 2024 project at CERN. Explores the application of Masked Autoencoders and Vision Transformers for classifying boosted top quark jets from simulated CMS Open Data, achieving superior performance over baseline models.</p>
+                <p>
+                    <a href="https://medium.com/@shuklashashankshekhar863/masked-autoencoders-for-efficient-end-to-end-particle-reconstruction-and-compression-for-the-cms-fdd7b941a2bb" target="_blank">Read Blog Post on Medium</a><br>
+                    <a href="https://cds.cern.ch/record/2891532/files/Masked%20Autoencoders%20for%20Efficient%20End-to-End%20Particle%20Reconstruction%20and%20Compression%20for%20the%20CMS%20Experiment.pdf" target="_blank">(View Published Article at CERN Document Server)</a><br>
+                    <!-- If you host the PDF in your repo: -->
+                    <a href="Masked_Autoencoders_CMS_Experiment.pdf" target="_blank">(View PDF from this site)</a>
+                </p>
+            </div>
             <div class="blog-item">
                 <h3>The Grand Symphony of Gradients: Composing Your Own Data Parallelism in PyTorch</h3>
-                <p>A deep dive into custom implementations of data parallelism, from naive approaches to efficient gradient bucketing.</p>
+                <p>An in-depth technical blog post that demystifies custom implementations of data parallelism in PyTorch. Covers naive approaches, efficient gradient bucketing, and the underlying mechanics of autograd and distributed communication.</p>
                 <p><a href="https://medium.com/@shuklashashankshekhar863/the-grand-symphony-of-gradients-composing-your-own-data-parallelism-in-pytorch-7c17012c9d08" target="_blank">Read on Medium</a></p>
             </div>
             <div class="blog-item">
-                <h3>Masked Autoencoders for Efficient End-to-End Particle Reconstruction and Compression for the CMS Experiment</h3>
-                <p>Details on the GSoC project at CERN, focusing on using MAEs for compressing high-energy physics data.</p>
-                <p><a href="https://medium.com/@shuklashashankshekhar863/masked-autoencoders-for-efficient-end-to-end-particle-reconstruction-and-compression-for-the-cms-fdd7b941a2bb" target="_blank">Read on Medium</a></p>
-                 <p><a href="https://cds.cern.ch/record/2891532/files/Masked%20Autoencoders%20for%20Efficient%20End-to-End%20Particle%20Reconstruction%20and%20Compression%20for%20the%20CMS%20Experiment.pdf" target="_blank">(View Published Article at CERN Document Server)</a></p>
+                <h3>The Ultrascale Conductor's Guide (Part 1): Global Batch Size, MBS & GAS</h3>
+                <p>The inaugural post in a series on advanced 5D parallelism for training massive neural networks. This part focuses on the critical roles of Global Batch Size, Micro-Batch Size, and Gradient Accumulation Steps.</p>
+                <p><em>(Link to be added upon publication)</em></p>
             </div>
-            <!-- Add more blog posts here -->
         </section>
 
         <section id="achievements" class="section">
             <h2>Achievements & Recognition</h2>
-            <ul>
-                <li class="achievement-item">
-                    <h3>Kaggle Competitions</h3>
+            <ul class="achievements-list">
+                <li>
+                    <strong>Kaggle Competition Prowess</strong>
+                    <p>Consistently performing at a high level in competitive data science challenges:</p>
+                    <div class="kaggle-medals">
+                        <span class="medal silver"><span class="medal-icon">🥈</span>LLM Science - 75th/2800 (Silver)</span>
+                        <span class="medal bronze"><span class="medal-icon">🥉</span>NeurIPS LuxAI S3 - 60th/1500 (Bronze)</span>
+                        <span class="medal bronze"><span class="medal-icon">🥉</span>UBC-OCEAN Cancer - 83rd/1600 (Bronze)</span>
+                    </div>
+                    <p style="margin-top:10px;">CIBMTR Post-HCT Survival Predictions: 155th rank.<br>AI of GOD Challenge: 18th rank.</p>
+                </li>
+                <li>
+                    <strong>Prestigious Honors</strong>
                     <p>
-                        <strong>Kaggle LLM Science:</strong> Silver Medal (75th/2800 teams)<br>
-                        <strong>NeurIPS - LuxAI Season 3:</strong> Bronze Medal (60th/1500 teams)<br>
-                        <strong>UBC-OCEAN Cancer Classification:</strong> Bronze Medal (83rd/1600 teams)<br>
-                        AI of GOD Challenge: 18th rank.
+                        Google Summer of Code 2024 with CERN (Selected among Top 0.001% globally).<br>
+                        Ranked 28th in Amazon ML Challenge.<br>
+                        Ranked 15th in AI Agent 007 Challenge (Inter-IIT).<br>
+                        Secured All India Rank (AIR) 1503 in GATE 2025 Data Science.
                     </p>
                 </li>
-                <li class="achievement-item">
-                    <h3>Honors</h3>
-                    <p>
-                        Google Summer of Code 2024 (Top 0.001% globally).<br>
-                        28th rank in Amazon ML Challenge.<br>
-                        15th rank in AI Agent 007 Challenge (Inter-IIT).<br>
-                        GATE 2025 Data Science (AIR 1503).
-                    </p>
-                </li>
-                <li class="achievement-item">
-                    <h3>Leadership</h3>
-                     <p>Founding Member and Mentor at AI Club, IIT (ISM) Dhanbad.</p>
+                <li>
+                    <strong>Leadership & Mentorship</strong>
+                     <p>Founding Member and Mentor at AI Club, IIT (ISM) Dhanbad, fostering a community of Machine Learning excellence and guiding peers.</p>
                 </li>
             </ul>
         </section>
 
         <section id="skills" class="section">
-            <h2>Skills</h2>
-            <p><strong>Machine Learning:</strong> PyTorch, TensorFlow, Pandas, Numpy, OpenCV, Scikit-learn, Vector Databases (e.g., ChromaDB), RAG, Deep Learning (CNNs, RNNs, Transformers, GNNs), Reinforcement Learning, MLOps principles.</p>
-            <p><strong>Programming Languages:</strong> Python, C/C++, SQL.</p>
-            <p><strong>Developer Tools:</strong> Git, GitHub, Linux, Google Cloud Platform (GCP), Docker, MS Excel, Snowflake, Databricks, PySpark.</p>
-            <p><strong>Coursework Highlights (A Grade):</strong> Automation and Control, Deep Learning (Python), Parallel Computing.</p>
+            <h2>Technical Skills</h2>
+            <div class="skills-category">
+                <strong>Machine Learning & AI:</strong>
+                <span class="skill-tag">Deep Learning (CNN, RNN, Transformers, MAE, GNNs)</span>
+                <span class="skill-tag">Reinforcement Learning (DQN)</span>
+                <span class="skill-tag">NLP (RAG, PEFT, LoRA, Text Summarization)</span>
+                <span class="skill-tag">Computer Vision (OCR, Image Segmentation)</span>
+                <span class="skill-tag">PyTorch</span> <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Pandas</span> <span class="skill-tag">Numpy</span>
+                <span class="skill-tag">OpenCV</span> <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">Vector Databases (ChromaDB)</span>
+                <span class="skill-tag">MLOps Principles</span>
+            </div>
+            <div class="skills-category">
+                <strong>Programming Languages:</strong>
+                <span class="skill-tag">Python</span> <span class="skill-tag">C/C++</span> <span class="skill-tag">SQL</span>
+            </div>
+            <div class="skills-category">
+                <strong>Developer Tools & Platforms:</strong>
+                <span class="skill-tag">Git</span> <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Linux</span> <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Google Cloud Platform (GCP)</span>
+                <span class="skill-tag">Snowflake</span> <span class="skill-tag">Databricks</span>
+                <span class="skill-tag">PySpark</span> <span class="skill-tag">MS Excel</span>
+            </div>
+            <div class="skills-category">
+                <strong>Key Coursework (A Grade):</strong>
+                <span class="skill-tag">Automation and Control</span>
+                <span class="skill-tag">Deep Learning (Python)</span>
+                <span class="skill-tag">Parallel Computing</span>
+                <span class="skill-tag">Wireless Networks</span>
+            </div>
         </section>
-
     </div>
 
     <footer>
@@ -261,6 +426,27 @@
 
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Simple active state for nav links based on scroll (optional)
+        const sections = document.querySelectorAll('.section');
+        const navLi = document.querySelectorAll('nav a');
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach( section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            })
+
+            navLi.forEach( a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === current) {
+                    a.classList.add('active');
+                }
+            })
+        });
     </script>
 </body>
 </html>
