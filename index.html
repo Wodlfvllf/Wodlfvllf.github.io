@@ -937,10 +937,10 @@
             </div>
             <div class="about-content">
                 <p>
-                    I'm a Research-focused Data Scientist and Framework Creator with 1+ years of experience in Machine Learning and Deep Learning. Currently pursuing my B.Tech at IIT Dhanbad, I've had the privilege of contributing to cutting-edge research at CERN through Google Summer of Code.
+                    I'm a Research-focused Data Scientist and Framework Creator with 1+ years of experience in Machine Learning and Deep Learning. I pursued my B.Tech at IIT Dhanbad, I've had the privilege of contributing to cutting-edge research at CERN through Google Summer of Code.
                 </p>
                 <p>
-                    My passion lies in pushing the boundaries of distributed deep learning. I created <strong>QuintNet</strong>, a novel 5D parallelism framework for training massive foundation models. My work spans computer vision, NLP, CUDA optimization, and large-scale model training.
+                    My passion lies in pushing the boundaries of distributed deep learning. I created <strong>QuintNet</strong>, a novel 5D parallelism framework for training massive foundation models. My work spans computer vision, NLP, CUDA optimization, and large-scale model training. Currently I am working on finetuning of vision language model.
                 </p>
                 <p>
                     As a technical writer with 6+ published articles and over 5K reads, I believe in sharing knowledge and making complex concepts accessible to the community.
@@ -977,15 +977,9 @@
                 <div class="timeline-content">
                     <div class="timeline-date">August 2025 - Present</div>
                     <div class="timeline-title">Data Scientist Intern</div>
-                    <div class="timeline-company">FAMPay (YC S19) - FinTech Unicorn</div>
+                    <div class="timeline-company">FAMPay (YC S19) - FinTech</div>
                     <div class="timeline-description">
-                        • Architected large-scale image-to-JSON pipeline using GPT-4o/Gemini APIs, processing 600K+ restaurant images<br>
-                        • Implemented distributed data processing using PySpark and Delta Lake for batch inference at scale<br>
-                        • Developed embedding-powered cuisine search system using fine-tuned BERT/Nomic architecture<br>
-                        • Automated model retraining pipeline with 15-day update cycles using cron scheduling<br>
-                        • Developed production-ready name matching algorithm for e-KYC verification reducing false positives by 15%<br>
-                        • Built automated message parsing systems for customer churn prediction modeling<br>
-                        • Implemented ML pipelines for financial risk assessment and fraud detection
+                        I developed and refined multiple name matching algorithms within the KYC pipeline, successfully reducing false positives by 15% for e-KYC verification. This involved building a new model that incorporated various signals such as Longest Common Subsequence (LCS), Phonetics, Levenshtein, Jaccard, and Jaro-Winkler, after thoroughly analyzing the discriminatory power of each. Concurrently, I built a robust pipeline to extract and parse data from ClickHouse-SQL, preparing it for downstream analysis. Beyond KYC, I also constructed automated message parsing systems crucial for customer churn prediction modeling, utilizing clustering and TF-IDF techniques to analyze messages and develop algorithms for classification and Named Entity Recognition.
                     </div>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
@@ -1002,11 +996,17 @@
                     <div class="timeline-title">Data Scientist Intern</div>
                     <div class="timeline-company">Swiggy - Food Delivery Unicorn</div>
                     <div class="timeline-description">
-                        • Developed advanced recommendation algorithms for food delivery optimization using collaborative filtering<br>
-                        • Implemented real-time demand forecasting models achieving 85% accuracy for delivery time prediction<br>
-                        • Built ETL pipelines processing 10M+ daily transactions using Apache Spark and Kafka<br>
-                        • Optimized search ranking algorithms improving restaurant discovery by 23%<br>
-                        • Created customer segmentation models for personalized marketing campaigns
+                        <p>At Swiggy Dineout, I was responsible for developing robust search and recommendation systems to enhance user discovery. 
+                            This involved preparing extensive user-restaurant datasets using optimized PySpark SQL queries to enable semantic search. 
+                            I also designed a large-scale pipeline leveraging GPT-4o/Gemini APIs, processing over 600K restaurant images into JSON data, 
+                            and implemented distributed data processing with PySpark and Delta Lake for scalable batch inference. My work included developing 
+                            an embedding-powered cuisine search system using fine-tuned BERT/Nomic architectures and creating a twin-tower architecture for 
+                            training embeddings with triplet loss, further incorporating n-gram embeddings to address spelling issues effectively. Data used to train embeddings combined
+                            Data prepared using image to json pipeline and restaurant page display, user session data, etc.To tackle the cold start problem, 
+                            I integrated a hybrid approach of content-based and collaborative filtering. Additionally, I 
+                            built real-time demand forecasting models that achieved 85% accuracy in predicting delivery times and established ETL pipelines processing
+                            over 10 million daily transactions using Apache Spark and Kafka. Through optimizing search ranking algorithms, I improved restaurant discovery 
+                            by 23% and developed customer segmentation models for personalized marketing campaigns.</p>
                     </div>
                     <div class="tech-tags">
                         <span class="tech-tag">PySpark</span>
@@ -1024,10 +1024,18 @@
                     <div class="timeline-title">Machine Learning Research Intern</div>
                     <div class="timeline-company">Google Summer of Code - ML4SCI at CERN</div>
                     <div class="timeline-description">
-                        • Developed novel Masked Autoencoder (MAE) architecture using Vision Transformers for particle classification<br>
-                        • Achieved 98.3% AUC on boosted top quark jet classification, outperforming ResNet-15 baselines<br>
-                        • Implemented large-scale distributed training using FSDP across multiple A100 GPUs<br>
-                        • Reduced model parameters by 99.9% (385 vs 38K+) while maintaining performance
+                        <p>In high-energy particle physics experiments, such as Compact Muon Solenoid
+(CMS) experiment at the Large Hadron Collider (LHC), effective classification
+of collision events is crucial. Traditional methods like the particle flow algorithm
+have been augmented by modern deep learning techniques, enabling improved
+accuracy in detecting and classifying particle events. We investigate the use of
+self-supervised learning and vision transformers (ViTs) for the classification of
+boosted top quark jets using simulated data from the CMS Open Data collection.
+Specifically, we employ masked autoencoders to learn representations through
+image reconstruction and leverage these representations for classification tasks.
+We find that a masked autoencoder with vision transformer architecture as base
+achieves an AUC score of 0.9830 for the task of classifying boosted top quark jets
+which outperforms baseline ResNet model.</p>
                     </div>
                     <div class="tech-tags">
                         <span class="tech-tag">Vision Transformers</span>
@@ -1045,10 +1053,7 @@
                     <div class="timeline-title">Large Language Models Research Intern</div>
                     <div class="timeline-company">Tata Consultancy Services (TCS) Research</div>
                     <div class="timeline-description">
-                        • Fine-tuned multiple LLMs (Phi-3-128k, LLaMA2-7B, OpenELM) using LoRA/PEFT techniques<br>
-                        • Achieved 292% improvement in F1 score (12% to 47%) through advanced prompt engineering<br>
-                        • Implemented anomaly detection pipeline for manufacturing quality control<br>
-                        • Curated domain-specific evaluation datasets for manufacturing QA
+                        <p>Leveraging expertise in machine learning, I successfully fine-tuned multiple Large Language Models, including Phi-3-128k, LLaMA2-7B, and OpenELM, through the application of LoRA/PEFT techniques. This work led to a substantial 292% improvement in F1 score, from 12% to 47%, achieved through advanced prompt engineering. Furthermore, I implemented an effective anomaly detection pipeline to enhance manufacturing quality control and curated domain-specific evaluation datasets essential for robust quality assurance.</p>
                     </div>
                     <div class="tech-tags">
                         <span class="tech-tag">LLaMA</span>
