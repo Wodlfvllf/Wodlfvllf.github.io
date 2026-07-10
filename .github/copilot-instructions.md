@@ -14,6 +14,6 @@
 ## Project guidance
 
 - Keep the site deployable as plain static files with no build step.
-- Preserve the warm editorial palette; do not introduce blue or purple gradients.
+- Preserve the restrained academic design: quiet typography, compact evidence-led sections, and a muted rust accent. Avoid gradients, oversized display elements, decorative graphics, and showy animation.
 - Keep résumé content in `index.html`, styling in `styles.css`, and interactions in `script.js`.
 - Maintain responsive behavior, keyboard access, reduced-motion support, and relative asset paths.

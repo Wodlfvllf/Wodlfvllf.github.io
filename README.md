@@ -1,6 +1,6 @@
-# Shashank Shekhar Shukla — Portfolio
+# Shashank Shekhar Shukla — Research Profile
 
-A responsive, dependency-free portfolio for applied ML, research, and systems work.
+A restrained, dependency-free academic profile for applied ML research and systems work.
 
 ## Run locally
 
